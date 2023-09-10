@@ -1,0 +1,105 @@
+Discrete Inputs 是只有一位么
+
+Input Registers 和 Holding Registers 有什么区别
+
+MatExpr operator + (const Mat& a, const Scalar& s)
+{
+    checkOperandsExist(a);
+    MatExpr e;
+    MatOp_AddEx::makeExpr(e, a, Mat(), 1, 0, s);
+    return e;
+}
+	
+inline void MatOp_AddEx::makeExpr(MatExpr& res, const Mat& a, const Mat& b, double alpha, double beta, const Scalar& s)
+{
+    res = MatExpr(&g_MatOp_AddEx, 0, a, b, Mat(), alpha, beta, s);
+}
+
+inline
+MatExpr::MatExpr(const MatOp* _op, int _flags, const Mat& _a, const Mat& _b,
+                 const Mat& _c, double _alpha, double _beta, const Scalar& _s)
+    : op(_op), flags(_flags), a(_a), b(_b), c(_c), alpha(_alpha), beta(_beta), s(_s)
+{}
+
+MatExpr operator * (const Mat& a, double s)
+{
+    checkOperandsExist(a);
+    MatExpr e;
+    MatOp_AddEx::makeExpr(e, a, Mat(), s, 0);
+    return e;
+}
+
+inline
+MatExpr::operator Mat() const
+{
+    Mat m;
+    op->assign(*this, m);
+    return m;
+}
+
+template<typename _Tp> inline
+MatExpr::operator Mat_<_Tp>() const
+{
+    Mat_<_Tp> m;
+    op->assign(*this, m, traits::Type<_Tp>::value);
+    return m;
+}
+
+void MatOp_AddEx::assign(const MatExpr& e, Mat& m, int _type) const
+{
+    Mat temp, &dst = _type == -1 || e.a.type() == _type ? m : temp;
+    if( e.b.data )
+    {
+        if( e.s == Scalar() || !e.s.isReal() )
+        {
+            if( e.alpha == 1 )
+            {
+                if( e.beta == 1 )
+                    cv::add(e.a, e.b, dst);
+                else if( e.beta == -1 )
+                    cv::subtract(e.a, e.b, dst);
+                else
+                    cv::scaleAdd(e.b, e.beta, e.a, dst);
+            }
+            else if( e.beta == 1 )
+            {
+                if( e.alpha == -1 )
+                    cv::subtract(e.b, e.a, dst);
+                else
+                    cv::scaleAdd(e.a, e.alpha, e.b, dst);
+            }
+            else
+                cv::addWeighted(e.a, e.alpha, e.b, e.beta, 0, dst);
+
+            if( !e.s.isReal() )
+                cv::add(dst, e.s, dst);
+        }
+        else
+        {
+            if (e.a.channels() > 1)
+                CV_LOG_ONCE_WARNING(NULL, "OpenCV/MatExpr: processing of multi-channel arrays might be changed in the future: "
+                                          "https://github.com/opencv/opencv/issues/16739");
+            cv::addWeighted(e.a, e.alpha, e.b, e.beta, e.s[0], dst);
+        }
+    }
+    else if( e.s.isReal() && (dst.data != m.data || fabs(e.alpha) != 1))
+    {
+        if (e.a.channels() > 1 && e.s[0] != 0.0)
+            CV_LOG_ONCE_WARNING(NULL, "OpenCV/MatExpr: processing of multi-channel arrays might be changed in the future: "
+                                      "https://github.com/opencv/opencv/issues/16739");
+        e.a.convertTo(m, _type, e.alpha, e.s[0]);
+        return;
+    }
+    else if( e.alpha == 1 )
+        cv::add(e.a, e.s, dst);
+    else if( e.alpha == -1 )
+        cv::subtract(e.s, e.a, dst);
+    else
+    {
+        e.a.convertTo(dst, e.a.type(), e.alpha);
+        cv::add(dst, e.s, dst);
+    }
+
+    if( dst.data != m.data )
+        dst.convertTo(m, m.type());
+}
