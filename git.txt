@@ -1,4 +1,6 @@
 
+num=`grep VERSION_BUILD version.h  | sed 's/\r//g' | sed 's/[[:blank:]]\+/ /g' |cut -d ' ' -f 3`; next=`expr $num + 1`; sed -i "s/$num/$next/g" version.h
+
 set up a git server
 
 git authentication

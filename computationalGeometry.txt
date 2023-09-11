@@ -1,0 +1,61 @@
+Handbook 的话，当然是这本 [1]，2017年的书，有很多新的结论。其他答案提到的 4M [2] 是经典的入门书籍。此外 [3] 也是一本很不错的书，可以作为读完 [2] 之后的深入阅读。计算几何往往和离散几何关系蛮紧密的，可以读一下 Matoušek 的 Lecture Notes [4] 了解一下计算几何算法设计常用的工具以及证明，比如 [2] 里最后一章 simplex range searching 用到的 cutting lemma 就在 [4] 里有详细证明。
+
+[1] Toth, Csaba D., Joseph O'Rourke, and Jacob E. Goodman, eds. <i>Handbook of discrete and computational geometry</i>. CRC press, 2017.
+[2] de Berg, Mark, et al. "Computational Geometry Algorithms and Applications Third Edition ed. 1 vols.", 2008.
+[3] Mulmuley, Ketan. "Computational geometry." <i>An Introduction Through Randomized Algorithms. Prentice-Hall, </i>1994.
+[4] Matoušek, Jiří. <i>Lectures on discrete geometry</i>. Vol. 212. Springer Science &amp; Business Media, 2013.
+
+[1] De Berg, Mark, et al. "Computational geometry." 3rd Edition. Springer Berlin Heidelberg, 2008.
+[2] Schneider, Philip, and David H. Eberly. <i>Geometric tools for computer graphics</i>. Morgan Kaufmann, 2002.
+
+
+在我们结构分析专业，经常会遇到一些与计算几何相关的问题，粗略浏览过以下几本书，记录一下以备忘。
+1.  周培德  计算几何：算法设计与分析
+http://www.dushu.com/book/10770234/
+周老师这本书挺好的，仔细地描述了许多典型计算几何的问题和算法，本书已有第三版，不过只在图书馆借到第
+二版的看。
+2. [荷]M.de Berg等著；邓俊辉译  计算几何：算法与应用
+原名：Computational Geometry:Algorithms and Applications Second Edition
+http://www.dushu.com/book/11196936/
+这本书也是一本很不错的书，网上可以找到该书的英文电子版。后面还讲述了一些关于平移多边形的机器人最短
+路径等有趣的计算几何问题。
+3.  （美）Philip J.Schneider，（美）David H.Eberly著； 周长发 译 计算机图形学几何工具算法详解
+原名：Geometric Tools for Computer Graphics
+http://www.dushu.com/book/11157979/
+这本书和前两本有些不同，里面还讲述了不少的关于矢量数学的算法。其伪代码的也较前两本要更详尽些。
+-------------------------------------------------
+Highflybird兄好像也写过计算几何程序包，是LISP语言的，似乎最近也编了许多ARX的程序包。有空我来整理下
+链接。：）
+-------------------------------------------------
+附：计算几何的定义，可参考
+http://en.wikipedia.org/wiki/Computational_geometry
+和
+http://zh.wikipedia.org/wiki/计算几何
+引用一下，大致如下
+------------------------
+计算几何是一门兴起于二十世纪七十年代末的计算机科学的一个分支，主要研究解决几何问题的算法。
+自从1946年世界上第一台电子计算机问世以来，计算机应用的一个重要里程碑是1962年美国麻省理工学院发明了
+世界上第一台图形显示器。自此之后，计算机可以通过图形显示器直接输入、输出图形，并且可以在显示屏上通
+过光标的移动而直接修改图形。而在这之前，工程师是通过一厚叠纸上密密麻麻的数字来间接表达工程图形的。
+1962年被认为是美国和欧洲CAD开始发展的一年。首先的应用领域是汽车、飞机和造船工业。这3个行业，由于
+其产品的外形曲面特别复杂，要求特别苛刻，而成为CAD首先应用的领域。
+与此同时，也就发展出了一门新兴学科——计算几何，它在美国常常被称为CAGD(Computer Aided Geometric
+								Design，计算机辅助几何设计)，专门研究“几何图形信息(曲面和三维实体)的计算机表示、分析、修改和综合”。
+1972年在美国举行CAGD第一次国际会议，标志计算几何学科的形成。
+研究内容包括
+Static problems 静态问题（如# Convex hull 凸壳，# 线段交点 Line segment intersection，# Delaunay
+tiangulation 点的Delaunay三角剖分，# Voronoi diagram Voronoi 图、# Closest pair of points 最近点对、
+# Euclidean shortest path 欧几里德最短路径、# Polygon triangulation 多边形的三角剖分）。Geometric
+query problems 问题 （如  * Range searching 范围搜索，如给定区域和点集，算出区域中的点集个数   * Point
+location 点位置查询: 给出一被分割为多个子区域的空间，确定一点位于哪一域内。* Nearest neighbor 及 * Ray
+tracing等
+Dynamic problems 动态问题，就是考虑时间的影响，如点集变为运动点集时候的问题）
+------------------------------
+现在一般到
+朗润书目
+http://book.lrbook.com/
+和读书：
+http://www.dushu.com/
+这些地方去查找书的信息。因为下过许多电子书，只有名字没有作者的，而我认为对于知道作者的名字是很重要
+的（比如一个好的作者我会尝试去寻找他写的其他书），所以我会搜索之后，用[作者] [书名]的命名方法来重命名
+文件。

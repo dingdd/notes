@@ -6,8 +6,6 @@
 /etc/network/interfaces.d/eth0
 sudo /etc/init.d/networking restart
 
-num=`grep VERSION_BUILD version.h  | sed 's/\r//g' | sed 's/[[:blank:]]\+/ /g' |cut -d ' ' -f 3`; next=`expr $num + 1`; sed -i "s/$num/$next/g" version.h
-
 play -n -c1 synth sin %-12 sin %-9 sin %-5 sin %-2 fade q 0.1 1 0.1
 plays a synthesised 'A minor seventh' chord with a pipe-organ sound,
 
