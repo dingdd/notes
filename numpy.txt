@@ -1,0 +1,40 @@
+from scipy.io.wavfile import read
+(fs, x) = read('pianoS.wav')
+(fss, xx) = read('pianoMono.wav')
+
+import numpy as np
+
+np.max(x)
+np.min(x)
+
+  An array can be indexed by a tuple of nonnegative integers, by booleans, by another array, or by integers.
+  https://numpy.org/doc/stable/user/absolute_beginners.html
+  
+  
+  For 3-D or higher dimensional arrays, the term tensor is also commonly used.为什么3维及以上的称作tensor
+  
+  
+In [3]: a = np.zeros(4)
+		print(a)
+		b = np.zeros((2,3), dtype = np.float32)
+		print(b)
+		c = np.zeros((2,2), dtype = [('x', 'i4'), ('y', 'f4')])
+		print(c)
+Out[3]: [0. 0. 0. 0.]
+		[[0. 0. 0.]
+		 [0. 0. 0.]]
+		[[(0, 0.) (0, 0.)]
+		 [(0, 0.) (0, 0.)]]
+————————————————
+版权声明：本文为CSDN博主「n南x星」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_50517509/article/details/125595673
+
+dtype是什么类型的？
+
+
+Just like in other Python container objects, the contents of an array can be accessed and modified by indexing or slicing the array. Unlike the typical container objects, different arrays can share the same data, so changes made on one array might be visible in another.?
+
+1 2 3
+4 5 6
+
+

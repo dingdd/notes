@@ -1,0 +1,51 @@
+
+https://spritely.institute/static/papers/scheme-primer.html
+
+(lambda (x) (* x 2))           ; procedure (we'll come back to this)
+'(lambda (x) (* x 2))          ; a list of lists, symbols, and numbers
+
+
+Finally, Scheme's procedures can do something else interesting: they can return multiple values using… values! As a particularly silly example, perhaps we would like to compare what it's like to both add and multiply two numbers:
+
+REPL> (define (add-and-multiply x y)
+        (values (+ x y)
+                (* x y)))
+REPL> (add-and-multiply 2 8)
+; => 10
+; => 16
+REPL> (define-values (added multiplied)
+        (add-and-multiply 3 10))
+REPL> added
+; => 13
+REPL> multiplied
+; => 30
+As you can see, we can capture said values with define-values, as shown above. (let-values and call-with-values can also be used, but that's enough new syntax for this section!)
+
+
+So, we could write a silly function that excitedly reports on whether or not an object is a string or not:
+
+REPL> (define (string-enthusiast obj)
+        (if (string? obj)
+            "Oh my gosh you gave me A STRING!!!"
+            "That WASN'T A STRING AT ALL!! MORE STRINGS PLEASE!"))
+REPL> (string-enthusiast "carrot")
+; => "Oh my gosh you gave me A STRING!!!"
+REPL> (string-enthusiast 529)
+; => "That WASN'T A STRING AT ALL!! MORE STRINGS PLEASE!"
+As we can see, unlike in some other popular languages, if also returns the value of evaluating whichever branch is chosen based on <TEST>.
+
+What is the return of else branch when condition is false
+
+
+map performs some extra work by building up a list of results every time. But what if we wanted to simply display our love of some food to the screen using display and did not care about operating on the data any further? We could use for-each, which has the same structure as map but does not build a result:
+
+REPL> (for-each (lambda (str)
+                  (display
+                   (string-append "I just love "
+                                  (string-upcase str)
+                                  "!!!\n")))
+                '("ice cream" "fudge" "cookies"))
+; prints:
+;   I just love ICE CREAM!!!
+;   I just love FUDGE!!!
+;   I just love COOKIES!!!
