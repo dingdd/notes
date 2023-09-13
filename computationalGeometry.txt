@@ -59,3 +59,17 @@ http://www.dushu.com/
 这些地方去查找书的信息。因为下过许多电子书，只有名字没有作者的，而我认为对于知道作者的名字是很重要
 的（比如一个好的作者我会尝试去寻找他写的其他书），所以我会搜索之后，用[作者] [书名]的命名方法来重命名
 文件。
+
+
+
+https://en.wikipedia.org/wiki/Bend_minimization
+
+https://en.wikipedia.org/wiki/Point_location
+
+https://en.wikipedia.org/wiki/Graph_drawing
+
+https://en.wikipedia.org/wiki/Polygonal_chain
+
+	Properties
+		Every set of at least n points contains a polygonal path of at least \abs \sqrt (n+1) edges
+		in which all slopes have the same sign. This is a corollary of the Erdos-Szekeres theorem.

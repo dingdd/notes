@@ -1,6 +1,9 @@
 1#yHbj53
 
+man 3 printf
+	following n conversion corresponds to a pointer ?
 
+man 3 stdarg
 
 /etc/network/interfaces 
 /etc/network/interfaces.d/eth0

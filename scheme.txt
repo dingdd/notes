@@ -49,3 +49,6 @@ REPL> (for-each (lambda (str)
 ;   I just love ICE CREAM!!!
 ;   I just love FUDGE!!!
 ;   I just love COOKIES!!!
+
+
+https://spritely.institute/static/papers/scheme-primer.html#scheme-in-scheme
