@@ -1,0 +1,16 @@
+Fast Fourier Transforms: A Tutorial Review and a State of the Art
+
+	Section 7.2: 
+		FFT Gauss and splitradix algorithm
+
+	Section 7.4:
+		twiddle factors
+		
+FIR filters (finite impulse response)
+	linear phase properties
+	The nature of FIR filters has the ability to “smooth out” these stray values with linear phase properties.
+
+approxPolyDP
+
+
+为什么傅里叶变换的逆变换可以把函数还原成原函数

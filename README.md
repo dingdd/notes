@@ -1,5 +1,28 @@
+求n维凸包与求线性相关性，分析算法复杂度？
+
+https://en.wikipedia.org/wiki/Directed_set
+	with the additional property that every pair of elements has an upper bound.
+	why every pair has an upper bound not every element has an upper bound?
+
 https://libgen.pm/
 
+[27] Duhamel, P. and Hollmann, H., Split-radix FFT algorithm, Electron. Lett., 20(1), 14–16, 5 January 1984.
+
+https://en.wikipedia.org/wiki/Lagrange_polynomial
+
+https://en.cppreference.com/w/cpp/language/move_constructor
+	class-name ( cv class-name && )	(1)	(since C++11)
+	class-name ( class-name && ) = default;	(2)	(since C++11)
+	class-name ( cv class-name && ) = delete;	(3)	(since C++11)
+
+	why second constructor do not require cv specifier?
+
+
+https://en.cppreference.com/w/cpp/language/direct_initialization
+	braced-init-lists
+
+https://en.cppreference.com/w/cpp/language/aggregate_initialization
+	Aggregate initialization
 
 1#yHbj53
 
