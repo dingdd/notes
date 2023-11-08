@@ -1,8 +1,10 @@
-求n维凸包与求线性相关性，分析算法复杂度？
+求n维凸包与求线性相关性，凸表示，分析算法复杂度？
 
 https://en.wikipedia.org/wiki/Directed_set
 	with the additional property that every pair of elements has an upper bound.
 	why every pair has an upper bound not every element has an upper bound?
+	
+https://en.wikipedia.org/wiki/Net_(mathematics)
 
 https://libgen.pm/
 
